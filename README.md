@@ -20,5 +20,15 @@ HealthMind does not provide medical diagnosis or treatment and is not a replacem
 - Vector Memory
 - PostgreSQL
 
+## Running the Backend
+
+```bash
+cd backend
+python -m venv venv
+venv/Scripts/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
+
 ## Project Status
 🚧 Under active development
