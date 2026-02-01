@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from backend.app.schemas.user import UserCreate, UserLogin
-from backend.app.models.user import fake_users_db
-from backend.app.core.security import hash_password, verify_password, create_access_token
+from app.schemas.user import UserCreate, UserLogin
+from app.models.user import fake_users_db
+from app.core.security import hash_password, verify_password, create_access_token
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
