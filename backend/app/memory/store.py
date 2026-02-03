@@ -16,3 +16,6 @@ def search_memory(embedding: List[float], k: int = 3):
     vector = np.array([embedding]).astype("float32")
     distances, indices = index.search(vector, k)
     return [memory_texts[i] for i in indices[0] if i < len(memory_texts)]
+
+def retrieve_similar_memories(text_embedding: List[float], k: int = 3):
+    return search_memory(text_embedding, k)
