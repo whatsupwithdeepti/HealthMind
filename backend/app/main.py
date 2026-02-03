@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.api.auth import router as auth_router
 from app.api.profile import router as profile_router
 from app.api.checkin import router as checkin_router
+from app.api.agent import router as agent_router
 
 app = FastAPI(
     title="HealthMind API",
@@ -10,6 +11,7 @@ app = FastAPI(
 )
 app.include_router(auth_router)
 app.include_router(profile_router)
+app.include_router(agent_router)
 app.include_router(checkin_router)
 
 @app.get("/health")
