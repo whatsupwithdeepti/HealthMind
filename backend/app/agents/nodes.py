@@ -1,6 +1,7 @@
 from app.agents.state import HealthState
 from app.memory.embeddings import embed_texts
 from app.memory.store import retrieve_similar_memories
+from app.core.llm import llm
 
 def retrieve_memory_node(state: HealthState) -> HealthState:
     embedding = embed_texts(state["user_input"])
@@ -30,4 +31,24 @@ def response_node(state: HealthState) -> HealthState:
     state["response"] = (
         f"Based on your recent patterns, I recommend to {state['decision']}."
     )
+    return state
+
+def llm_response_node(state: HealthState) -> HealthState:
+    prompt = f"""
+You are a supportive health coach.
+User input:
+{state['user_input']}
+
+Relevant past behavior:
+{state['memories']}
+
+Agent decision:
+{state['decision']}
+
+Respond empathetically, briefly, and practically.
+Avoid medical diagnosis.
+"""
+
+    response = llm.invoke(prompt)
+    state["response"] = response.content
     return state
