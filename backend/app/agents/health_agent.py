@@ -5,7 +5,7 @@ from app.agents.nodes import (
     retrieve_memory_node,
     analyze_behavior_node,
     decision_node,
-    response_node,
+    llm_response_node,
 )
 
 
