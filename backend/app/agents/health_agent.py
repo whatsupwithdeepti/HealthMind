@@ -1,5 +1,6 @@
 from langgraph.graph import StateGraph, END
 from app.agents.state import HealthState
+from app.agents.nodes import llm_response_node
 from app.agents.nodes import (
     retrieve_memory_node,
     analyze_behavior_node,
@@ -14,7 +15,7 @@ def build_health_agent():
     graph.add_node("retrieve_memory", retrieve_memory_node)
     graph.add_node("analyze", analyze_behavior_node)
     graph.add_node("decide", decision_node)
-    graph.add_node("respond", response_node)
+    graph.add_node("respond", llm_response_node)
 
     graph.set_entry_point("retrieve_memory")
     graph.add_edge("retrieve_memory", "analyze")
