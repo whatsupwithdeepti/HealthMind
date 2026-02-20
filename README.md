@@ -96,13 +96,10 @@ backend/
 }
 ```
 
-System:
-
-Generates behavioral summary
-
-Converts summary into embeddings
-
-Stores vector in FAISS memory index
+### System:
+- Generates behavioral summary
+- Converts summary into embeddings
+- Stores vector in FAISS memory index
 
 ### User Asks Agent
 
@@ -112,19 +109,13 @@ Stores vector in FAISS memory index
 }
 ```
 
-Agent Pipeline:
-
-Embeds user input
-
-Retrieves similar past memories
-
-Analyzes behavioral patterns
-
-Makes structured decision
-
-Sends grounded context to LLM
-
-Returns empathetic response
+### Agent Pipeline:
+- Embeds user input
+- Retrieves similar past memories
+- Analyzes behavioral patterns
+- Makes structured decision
+- Sends grounded context to LLM
+- Returns empathetic response
 
 ## 🛠️ Setup Instructions
 
